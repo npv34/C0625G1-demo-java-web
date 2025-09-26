@@ -13,6 +13,11 @@ import java.io.PrintWriter;
 
 @WebServlet(name = "AuthServlet", urlPatterns = {"/auth/*"})
 public class AuthController extends BaseController {
+    private final AuthService authService;
+
+    public AuthController() {
+        this.authService = new AuthService();
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -20,10 +25,10 @@ public class AuthController extends BaseController {
         System.out.println(path);
         switch (path) {
             case "/login":
-                AuthService.renderLoginPage(req, resp);
+                authService.renderLoginPage(req, resp);
                 break;
             case "/register":
-                AuthService.renderRegisterPage(req, resp);
+                authService.renderRegisterPage(req, resp);
                 break;
             default:
                 System.out.println("Not found");
