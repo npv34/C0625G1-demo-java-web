@@ -12,6 +12,7 @@
     <title>Title</title>
 </head>
 <body>
+<a href="/admin/users/create">Create</a>
 <table>
     <tr>
         <th>ID</th>
